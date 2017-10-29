@@ -1,22 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="StackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Zj-EG-4pd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </sceneKitView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-MR-NNz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pRI-8s-CqK" appends="YES" id="BxD-j5-doa"/>
+                                </connections>
+                            </sceneKitView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlI-wW-Dsw">
+                                <rect key="frame" x="151" y="50" width="74.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OlI-wW-Dsw" firstAttribute="centerX" secondItem="5Zj-EG-4pd" secondAttribute="centerX" id="GxW-CT-hep"/>
+                            <constraint firstItem="NrB-MR-NNz" firstAttribute="trailing" secondItem="W8f-sW-Frg" secondAttribute="trailing" id="JNc-nC-5li"/>
+                            <constraint firstItem="NrB-MR-NNz" firstAttribute="leading" secondItem="W8f-sW-Frg" secondAttribute="leading" id="QQ9-8J-sBg"/>
+                            <constraint firstItem="NrB-MR-NNz" firstAttribute="top" secondItem="5Zj-EG-4pd" secondAttribute="top" id="hPk-s6-tHI"/>
+                            <constraint firstItem="OlI-wW-Dsw" firstAttribute="top" secondItem="W8f-sW-Frg" secondAttribute="top" constant="30" id="qEV-t7-Ism"/>
+                            <constraint firstItem="NrB-MR-NNz" firstAttribute="bottom" secondItem="W8f-sW-Frg" secondAttribute="bottom" id="qjf-Su-FaJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W8f-sW-Frg"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="NrB-MR-NNz" id="kHL-KK-f3l"/>
+                        <outlet property="scoreLabel" destination="OlI-wW-Dsw" id="Nuq-S5-9ki"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pRI-8s-CqK">
+                    <connections>
+                        <action selector="handleTapAction:" destination="BV1-FR-VrT" id="2DU-dv-D3w"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
